@@ -30,3 +30,21 @@ func IndexOf[T comparable](slice []T, target T) (index int) {
 	}
 	return
 }
+
+func Every[T comparable](slice []T, everyFn func(item T) bool) bool {
+	for _, v := range slice {
+		if !everyFn(v) {
+			return false
+		}
+	}
+	return true
+}
+
+func Some[T comparable](slice []T, someFn func(item T) bool) bool {
+	for _, v := range slice {
+		if someFn(v) {
+			return true
+		}
+	}
+	return false
+}
