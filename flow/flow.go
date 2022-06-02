@@ -1,4 +1,4 @@
-package su
+package su_flow
 
 // If is a ternary conditional operator function
 // Returns the "first" argument if the condition is true, otherwise the "second" argument

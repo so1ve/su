@@ -1,4 +1,4 @@
-package su
+package su_slice
 
 import (
 	"testing"
@@ -31,14 +31,14 @@ func TestIndexOf(t *testing.T) {
 
 func TestEvery(t *testing.T) {
 	slice := []int{1, 3, 4, 5}
-	if !Every(slice, func(item int) bool { return item > 0 }) {
+	if !Every(slice, func(item int, _ int) bool { return item > 0 }) {
 		t.Error("Expected to be every")
 	}
 }
 
 func TestSome(t *testing.T) {
 	slice := []int{1, 3, 4, 5}
-	if !Some(slice, func(item int) bool { return item > 3 }) {
+	if !Some(slice, func(item int, _ int) bool { return item > 3 }) {
 		t.Error("Expected to be some")
 	}
 }

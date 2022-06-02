@@ -1,4 +1,4 @@
-package su
+package su_flow
 
 import (
 	"testing"
