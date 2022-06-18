@@ -25,13 +25,8 @@ func IndexOf[T comparable](slice []T, target T) (index int) {
 }
 
 // Includes checks if a slice contains a target item.
-func Includes[T comparable](slice []T, target T) (found bool) {
-	for _, v := range slice {
-		if v == target {
-			found = true
-		}
-	}
-	return
+func Includes[T comparable](slice []T, target T) bool {
+	return IndexOf(slice, target) != -1
 }
 
 // IndexOfReflect is similar to IndexOf but uses runtime reflection.
@@ -47,14 +42,8 @@ func IndexOfReflect[T any](slice []T, target T) (index int) {
 }
 
 // IncludesReflect is similar to Includes but uses runtime reflection.
-func IncludesReflect[T any](slice []T, target T) (found bool) {
-	for _, v := range slice {
-		if reflect.DeepEqual(v, target) {
-			found = true
-			break
-		}
-	}
-	return
+func IncludesReflect[T any](slice []T, target T) bool {
+	return IndexOfReflect(slice, target) != -1
 }
 
 func Every[T comparable](slice []T, everyFn func(item T, idx int) bool) bool {

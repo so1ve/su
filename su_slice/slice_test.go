@@ -12,6 +12,26 @@ func TestMap(t *testing.T) {
 	}
 }
 
+func TestIndexOf(t *testing.T) {
+	slice := []int{1, 3, 4, 5}
+	if !(IndexOf(slice, 1) == 0) {
+		t.Error("Expected to found 1")
+	}
+	if !(IndexOf(slice, 6) == -1) {
+		t.Error("Expected not to found 6")
+	}
+}
+
+func TestIndexOfReflect(t *testing.T) {
+	slice := [][]int{{2, 3, 4}, {1, 2, 3}}
+	if !(IndexOfReflect(slice, []int{2, 3, 4}) == 0) {
+		t.Error("Expected to found []int{2, 3, 4}")
+	}
+	if !(IndexOfReflect(slice, []int{2, 3, 1}) == -1) {
+		t.Error("Expected not to found []int{2, 3, 1}")
+	}
+}
+
 func TestIncludes(t *testing.T) {
 	slice := []int{1, 3, 4, 5}
 	if !Includes(slice, 1) {
@@ -22,10 +42,13 @@ func TestIncludes(t *testing.T) {
 	}
 }
 
-func TestIndexOf(t *testing.T) {
-	slice := []int{1, 3, 4, 5}
-	if !(IndexOf(slice, 1) == 0) {
-		t.Error("Expected to found index")
+func TestIncludesReflect(t *testing.T) {
+	slice := [][]int{{2, 3, 4}, {1, 2, 3}}
+	if !IncludesReflect(slice, []int{2, 3, 4}) {
+		t.Error("Expected to found []int{2, 3, 4}")
+	}
+	if IncludesReflect(slice, []int{2, 3, 1}) {
+		t.Error("Expected not to found []int{2, 3, 1}")
 	}
 }
 
