@@ -5,7 +5,11 @@ func Substring(s string, start int, args ...int) string {
 		panic("Only one extra parameter should be passed")
 	}
 	runes := []rune(s)
-	end := args[0]
+	end := len(runes)
+
+	if len(args) != 0 {
+		end = args[0]
+	}
 	return string(runes[start:end])
 }
 
