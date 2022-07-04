@@ -8,3 +8,8 @@ func Substring(s string, start int, args ...int) string {
 	end := args[0]
 	return string(runes[start:end])
 }
+
+func CharCodeAt(s string, idx int) int {
+	runes := []rune(s)
+	return int(runes[idx])
+}

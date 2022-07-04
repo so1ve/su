@@ -12,3 +12,10 @@ func TestSubstring(t *testing.T) {
 		t.Error("Expected to be 害嗨, got", Substring(s, 1, 3))
 	}
 }
+
+func TestCharCodeAt(t *testing.T) {
+	s := "abcdefg"
+	if CharCodeAt(s, 3) != 100 {
+		t.Error("Expected to be bc, got", CharCodeAt(s, 3))
+	}
+}
